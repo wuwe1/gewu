@@ -13,7 +13,7 @@ import { type Article, pull, type Source } from "../src/sources.ts";
 
 const HELP = `gewu — 格物
 
-采集（经 cdp-relay，在登录着的 Chrome 里开 gewu 自己的标签页）
+采集（经 booey，在登录着的 Chrome 里开 gewu 自己的标签页）
   gewu x home | following | list <id> | user <handle> | thread <推文 id> | search <词>  [--scrolls N]
       读一条时间线，并进 data/tweets.json，打印读到几条、新几条
 

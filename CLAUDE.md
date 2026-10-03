@@ -85,6 +85,6 @@
 - `data/study-state.json`：只有阅读服务写。人在页面上改状态（待学 / 在学 / 学完）、勾掉读完的、写备注
 - `gewu study` 一行一项看进度；人改过的会出现在 `gewu inbox` 的 `study` 里。看到「学完」，就去 review 对应的笔记
 
-## cdp-relay
+## booey（浏览器）
 
-`~/Developer/cdp-relay`，daemon 默认 9224（`cdp-relay doctor` 查状态）。只在 `src/browser.ts` 里碰它：用 gewu 自己在后台开的标签页（window.name = "gewu"），不碰人正在用的标签页。X 的数据靠拦页面自己发的 GraphQL 响应（`src/x.ts`），不自己调接口；X 改了响应结构就改 `extract`。
+依赖 `@wuwe1/booey`（GitHub `wuwe1/booey`，package.json 里固定在一个 commit；升级就换 commit 再 `pnpm install`，协议版本变了要在 Chrome 里重新加载扩展）。daemon 默认 9224，`npx booey doctor` 查状态。只在 `src/browser.ts` 里碰它：用 gewu 自己在后台开的标签页（window.name = "gewu"），不碰人正在用的标签页。X 的数据靠拦页面自己发的 GraphQL 响应（`src/x.ts`），不自己调接口；X 改了响应结构就改 `extract`。

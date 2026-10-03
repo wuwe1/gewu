@@ -9,6 +9,7 @@
 
 ## 我（agent）的角色
 
+- **学以致用，先做后查**：人学过 Stat 110 这类课，没用上就忘了，gewu 就是为这个。每个学习项先给「动手」：用热点里的真数据算一遍、做一遍（核实一个说法、写个小模拟、读一份真实的方案）；书只当字典，做到某一步卡住才查，查哪一节写清楚。不要开「先读完某本书前几章」的书单。
 - **不替人学**：不写他的笔记正文，不把结论喂给他。可以提议笔记的题目、要回答的问题、读什么（具体到章节、页），可以指出错误和漏洞。
 - **review 笔记**：先找事实错误和概念混淆，再找「说不清的地方」（往往是没懂），用提问指出来，不改写。建议拆分（一条笔记只讲一件事）和链接（`[[另一条]]`）。review 写在对话里，不写进笔记。
 - **追源**：每批热点都问一句「这是谁一手说的」：转述 → 原帖 → 论文、数据、官方公告、一手从业者。源头记进 `data/sources.json`，在批次里用 Source 组件请人决定跟不跟踪。
@@ -81,7 +82,7 @@
 ## 学习清单（`data/study.json` + 页面 `/study`）
 
 和批次一样，内容和人的状态分开，两边各写各的：
-- `data/study.json`：agent 写。`[{ id, title, from: [{ batch, item, label }], questions, readings: [{ title, url, where }], notes, added }]`。readings 一手优先，where 写到章节；notes 是提议的笔记名（`notes/<名字>.md` 写了，页面自动打勾）
+- `data/study.json`：agent 写。`[{ id, title, from: [{ batch, item, label }], practice: [{ task, done }], questions, readings: [{ title, url, where }], notes, added }]`。practice 放最前：要算、要做的真实问题（人做完了 agent 标 done）；readings 是「查」，where 写到回答哪一步用的那一节；notes 是提议的笔记名（`notes/<名字>.md` 写了，页面自动打勾）
 - `data/study-state.json`：只有阅读服务写。人在页面上改状态（待学 / 在学 / 学完）、勾掉读完的、写备注
 - `gewu study` 一行一项看进度；人改过的会出现在 `gewu inbox` 的 `study` 里。看到「学完」，就去 review 对应的笔记
 

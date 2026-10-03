@@ -87,6 +87,20 @@ function Card({ s, written, patch }: { s: Item; written: string[]; patch: (p: Pa
 				<Status value={s.state.status} onChange={(status) => patch({ status })} />
 			</div>
 
+			{s.practice && s.practice.length > 0 && (
+				<section className="flex flex-col gap-2 rounded-lg border bg-muted/40 px-4 py-3">
+					<Label>动手（先做，卡住再查）</Label>
+					<ol className="flex flex-col gap-1.5 text-sm leading-relaxed">
+						{s.practice.map((p, i) => (
+							<li key={p.task} className="flex gap-2">
+								<span className={`mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full border text-[11px] tabular-nums ${p.done ? "border-primary bg-primary text-primary-foreground" : "text-muted-foreground"}`}>{p.done ? <Check className="size-3" /> : i + 1}</span>
+								<span className={p.done ? "text-muted-foreground" : ""}>{p.task}</span>
+							</li>
+						))}
+					</ol>
+				</section>
+			)}
+
 			{s.questions.length > 0 && (
 				<section className="flex flex-col gap-2">
 					<Label>要回答</Label>
@@ -98,7 +112,7 @@ function Card({ s, written, patch }: { s: Item; written: string[]; patch: (p: Pa
 
 			{s.readings.length > 0 && (
 				<section className="flex flex-col gap-1">
-					<Label>读</Label>
+					<Label>查（做到卡住时翻）</Label>
 					{s.readings.map((r, i) => {
 						const on = s.state.read.includes(i);
 						return (

@@ -33,8 +33,10 @@ export type StudyItem = {
 	title: string;
 	/** 由来：哪一批的哪一条 */
 	from: { batch: string; item: string | null; label: string }[];
+	/** 动手：用热点里的真数据算一遍、做一遍。学以致用，先做后查 */
+	practice?: { task: string; done?: boolean }[];
 	questions: string[];
-	/** 读什么：一手优先，where 写到章节 */
+	/** 查什么：做到某一步卡住时才翻，where 写到回答那一步的那一节 */
 	readings: { title: string; url: string | null; where: string | null }[];
 	/** 可以写的原子笔记（notes/<名字>.md） */
 	notes: string[];

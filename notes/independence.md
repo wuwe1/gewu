@@ -1,7 +1,3 @@
----
-source: "[Amidi, CME 106 概率速查表](https://stanford.edu/~shervine/teaching/cme-106/cheatsheet-probability/)"
-tags: [定义]
----
 # 独立
 
 两个事件 $A$、$B$ 独立：
@@ -17,6 +13,3 @@ f_{XY}(x,y)=f_X(x)\,f_Y(y)
 $$
 
 - 连到：[[covariance]]、[[variance]]、[[statistical-inference]]
-
-## 我的理解
-

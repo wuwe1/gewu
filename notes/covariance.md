@@ -1,7 +1,3 @@
----
-source: "[Amidi, CME 106 概率速查表](https://stanford.edu/~shervine/teaching/cme-106/cheatsheet-probability/)"
-tags: [定义]
----
 # 协方差和相关系数
 
 $$
@@ -18,6 +14,3 @@ $$
 - 如果 $X$、$Y$ 独立，那么 $\rho_{XY}=0$
 
 - 连到：[[independence]]、[[variance]]、[[statistical-inference]]
-
-## 我的理解
-

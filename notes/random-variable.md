@@ -1,7 +1,3 @@
----
-source: "[Amidi, CME 106 概率速查表](https://stanford.edu/~shervine/teaching/cme-106/cheatsheet-probability/)"
-tags: [定义]
----
 # 随机变量和它的分布
 
 随机变量 $X$：把样本空间里的每个结果，对应到实数轴上的一个函数。
@@ -23,6 +19,3 @@ $$
 $$
 
 - 连到：[[expected-value]]、[[variance]]、[[statistical-inference]]
-
-## 我的理解
-

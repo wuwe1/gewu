@@ -1,7 +1,3 @@
----
-source: "[Amidi, CME 106 概率速查表](https://stanford.edu/~shervine/teaching/cme-106/cheatsheet-probability/)"
-tags: [定义]
----
 # 期望
 
 $$
@@ -15,6 +11,3 @@ E[g(X)]=\sum_{i=1}^{n}g(x_i)\,f(x_i)\qquad\qquad E[g(X)]=\int_{-\infty}^{+\infty
 $$
 
 - 连到：[[random-variable]]、[[variance]]、[[break-even]]、[[statistical-inference]]
-
-## 我的理解
-

@@ -2,7 +2,7 @@
 
 **为了解释什么**：手里只有一些观察（一次评测、一批抽检、一段收益记录），怎么判断背后的真实情况；这个数字有多可信；要多少数据才够；什么时候会被运气骗。
 
-参考（查公式用）：[CME 106 概率速查表](https://stanford.edu/~shervine/teaching/cme-106/cheatsheet-probability/)、[CME 106 统计速查表](https://stanford.edu/~shervine/teaching/cme-106/cheatsheet-statistics/)。带「定义」标签的笔记是从这里搬的，「我的理解」留给自己写。
+参考（查公式用）：[CME 106 概率速查表](https://stanford.edu/~shervine/teaching/cme-106/cheatsheet-probability/)、[CME 106 统计速查表](https://stanford.edu/~shervine/teaching/cme-106/cheatsheet-statistics/)。
 
 每个节点：**定义**（它是什么）· **推导**（为什么是这样）· **直觉**（一句话的画面）· **解释**（它回答哪类问题）。`[[名字]]` 是对应的原子笔记，`notes/<名字>.md`。
 

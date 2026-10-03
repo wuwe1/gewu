@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "maps/statistical-inference.md",
+                "file": "chebyshev-inequality.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "statistical-inference"
+              "title": "chebyshev-inequality"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "maps/statistical-inference.md",
+                "file": "chebyshev-inequality.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "maps/statistical-inference.md",
+                "file": "chebyshev-inequality.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "maps/statistical-inference.md",
+                "file": "chebyshev-inequality.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -190,11 +190,12 @@
   },
   "active": "ba2db4905bc7bc2e",
   "lastOpenFiles": [
-    "chebyshev-inequality.md",
     "covariance.md",
-    "independence.md",
-    "variance.md",
     "expected-value.md",
-    "random-variable.md"
+    "independence.md",
+    "chebyshev-inequality.md",
+    "random-variable.md",
+    "maps/statistical-inference.md",
+    "variance.md"
   ]
 }

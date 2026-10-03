@@ -1,7 +1,3 @@
----
-source: "[Amidi, CME 106 概率速查表](https://stanford.edu/~shervine/teaching/cme-106/cheatsheet-probability/)"
-tags: [定义]
----
 # 方差和标准差
 
 $$
@@ -15,6 +11,3 @@ $$
 $$
 
 - 连到：[[expected-value]]、[[independence]]、[[covariance]]、[[statistical-inference]]
-
-## 我的理解
-

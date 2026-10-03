@@ -85,9 +85,12 @@
 | `sources.json` | `[{ id, kind, name, url, feed, why, from: [批次], status: 候选\|跟踪\|不用, added }]` | agent 按批注维护（人在 Source 卡片上标「跟踪」就改 status，找到 RSS/Atom 填 feed），id 如 `x:handle`、`web:域名` |
 | `items.json` | `{ [url]: { source, title, url, published, summary, seen } }` | `gewu pull` 合并 |
 
-## 笔记（`notes/`，进 git）
+## 笔记（`notes/`，进 git，人用 Obsidian 看）
 
-见 `notes/README.md`。
+- 卡片：一个术语一张，文件名就是术语（照出处写法，例 `Expected value.md`）；内容照抄出处原文，不改写；属于一起的放一张；原文里出现别的术语就在那个词上加 `[[术语|原词]]`。不加属性、标签、「相关」段落。数学卡片用英文。
+- 地图：`notes/maps/<主题>.md`，节点用 `[[术语]]` 指向卡片，每个节点写定义、推导、直觉、解释。
+- 图：TikZ 源文件 `notes/figures/<名字>.tex`（`\documentclass[tikz,dvisvgm]{standalone}`），`scripts/fig.sh` 编译成同名 `.svg`，卡片里 `![[<名字>.svg]]`。
+- 不写 README 和说明性文档。
 
 ## 学习清单（`data/study.json` + 页面 `/study`）
 

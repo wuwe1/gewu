@@ -6,6 +6,7 @@ import { execFile } from "node:child_process";
 import { annotations, type Batch, check, ids, inbox, list } from "../src/batches.ts";
 import { ensure, health, logFile, port, start, stop, url, version } from "../src/daemon.ts";
 import { serve } from "../src/server.ts";
+import { fetchVideo } from "../src/youtube.ts";
 import { view as studyView } from "../src/study.ts";
 import { read, write } from "../src/store.ts";
 import { type Feed, feeds, merge, type Stored, timeline } from "../src/x.ts";
@@ -16,6 +17,9 @@ const HELP = `gewu — 格物
 采集（经 booey，在登录着的 Chrome 里开 gewu 自己的标签页）
   gewu x home | following | list <id> | user <handle> | thread <推文 id> | search <词>  [--scrolls N]
       读一条时间线，并进 data/tweets.json，打印读到几条、新几条
+
+YouTube（追源：频道、发布日期、简介、字幕）
+  gewu yt <链接或 id>   读视频的元数据进 data/videos.json，字幕进 data/transcripts/<id>.txt
 
 看推文（给 agent 挑一批用）
   gewu tweets [--fresh] [--via <时间线>] [--limit N]
@@ -89,6 +93,12 @@ async function main() {
 				console.log(`${t.id}  @${t.author.handle}${t.retweetedBy ? ` (RT @${t.retweetedBy})` : ""}  ${t.created.slice(5, 16).replace("T", " ")}  ♥${c.likes} ↻${c.retweets} 👁${c.views ?? "-"}${t.media.length ? ` 🖼${t.media.length}` : ""}\n  ${line(t.text, 280)}${t.quoted ? `\n  ↳ @${t.quoted.author.handle}: ${line(t.quoted.text, 160)}` : ""}`);
 			}
 			console.error(`${list.length} 条`);
+			return;
+		}
+		case "yt": {
+			if (!args[0]) throw new Error("gewu yt <链接或 id>");
+			const v = await fetchVideo(args[0]);
+			out({ ...v, description: v.description.slice(0, 1500) });
 			return;
 		}
 		case "sources":

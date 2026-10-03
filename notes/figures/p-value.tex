@@ -1,0 +1,16 @@
+% p 值（右侧）：H0 为真时，检验统计量至少和观察值 T0 一样极端的概率
+\documentclass[tikz,dvisvgm,border=6pt]{standalone}
+\input{style}
+\begin{document}
+\begin{tikzpicture}
+  \def\t{7.6}
+  \fill[area] (\t,0) -- plot[domain=\t:10, samples=60, variable=\xx] (\xx, {dens(\xx)}) -- (10,0) -- cycle;
+  \draw[guide] (\t,0) -- (\t,{dens(\t)});
+  \draw[curve] plot[domain=0:10, samples=120, variable=\xx] (\xx, {dens(\xx)});
+  \draw[axis] (0,0) -- (10.3,0);
+  \draw[tick] (\t,0) -- (\t,-0.08) node[below] {$T_0$};
+  \node at (3.1,2.3) {$H_0$};
+  \node (lab) at (9.3,1.25) {$p$-value};
+  \draw[pointer] (lab.south) to[out=-90, in=30] (8.35,0.18);
+\end{tikzpicture}
+\end{document}

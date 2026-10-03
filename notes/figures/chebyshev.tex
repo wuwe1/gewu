@@ -1,0 +1,17 @@
+% 切比雪夫：离均值超过 k 个标准差的两条尾巴，面积合起来不超过 1/k^2
+\documentclass[tikz,dvisvgm,border=6pt]{standalone}
+\input{style}
+\begin{document}
+\begin{tikzpicture}
+  \def\m{4.85}\def\a{2.55}\def\b{7.15}
+  \fill[area] (0,0) -- plot[domain=0:\a, samples=60, variable=\xx] (\xx, {dens(\xx)}) -- (\a,0) -- cycle;
+  \fill[area] (\b,0) -- plot[domain=\b:10, samples=60, variable=\xx] (\xx, {dens(\xx)}) -- (10,0) -- cycle;
+  \draw[guide] (\a,0) -- (\a,{dens(\a)});
+  \draw[guide] (\b,0) -- (\b,{dens(\b)});
+  \draw[curve] plot[domain=0:10, samples=120, variable=\xx] (\xx, {dens(\xx)});
+  \draw[axis] (0,0) -- (10.3,0);
+  \draw[tick] (\a,0) -- (\a,-0.08) node[below] {$\mu-k\sigma$};
+  \draw[tick] (\m,0) -- (\m,-0.08) node[below] {$\mu$};
+  \draw[tick] (\b,0) -- (\b,-0.08) node[below] {$\mu+k\sigma$};
+\end{tikzpicture}
+\end{document}

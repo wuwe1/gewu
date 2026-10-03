@@ -1,0 +1,15 @@
+% CDF：F(x) = P(X <= x) 是密度曲线下、x 左边的面积
+\documentclass[tikz,dvisvgm,border=6pt]{standalone}
+\input{style}
+\begin{document}
+\begin{tikzpicture}[yscale=1]
+  \def\x{6.4}
+  \fill[area] (0,0) -- plot[domain=0:\x, samples=80, variable=\xx] (\xx, {dens(\xx)}) -- (\x,0) -- cycle;
+  \draw[guide] (\x,0) -- (\x,{dens(\x)});
+  \draw[curve] plot[domain=0:10, samples=120, variable=\xx] (\xx, {dens(\xx)});
+  \draw[axis] (0,0) -- (10.3,0);
+  \draw[tick] (\x,0) -- (\x,-0.08) node[below] {$x$};
+  \node (lab) at (1.6,2.15) {$P(X\leqslant x)$};
+  \draw[pointer] (lab.south east) to[out=-40, in=180] (3.5,1.2);
+\end{tikzpicture}
+\end{document}

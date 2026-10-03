@@ -1,0 +1,15 @@
+% 公理 3：两两互斥的事件 E1、E2、E3
+\documentclass[tikz,dvisvgm,border=6pt]{standalone}
+\input{style}
+\begin{document}
+\begin{tikzpicture}
+  \draw[space] (0,0) rectangle (10,2.8);
+  \node[anchor=north east] at (10,2.8) {$S$};
+  \filldraw[set, rotate around={15:(2.1,1.4)}] (2.1,1.4) ellipse (1.2 and 0.78);
+  \node at (2.1,1.4) {$E_1$};
+  \filldraw[set, rotate around={-40:(5.1,1.4)}] (5.1,1.4) ellipse (1.1 and 0.8);
+  \node at (5.1,1.4) {$E_2$};
+  \filldraw[set, rotate around={65:(8,1.4)}] (8,1.4) ellipse (1.15 and 0.72);
+  \node at (8,1.4) {$E_3$};
+\end{tikzpicture}
+\end{document}

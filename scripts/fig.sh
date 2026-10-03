@@ -8,7 +8,8 @@ cd "$(dirname "$0")/../notes/figures"
 tmp=$(mktemp -d)
 for f in ${@:-*.tex}; do
 	name=${f%.tex}
-	latex -interaction=nonstopmode -halt-on-error -output-directory="$tmp" "$f" >/dev/null || { cat "$tmp/$name.log" | tail -20; exit 1; }
+	[ "$name" = style ] && continue  # 共用的样式，不是一张图
+	latex -interaction=nonstopmode -halt-on-error -output-directory="$tmp" "$f" >/dev/null || { echo "$f 编译失败："; grep -A3 '^!' "$tmp/$name.log" | head -12; exit 1; }
 	dvisvgm --no-fonts --exact-bbox -o "$name.svg" "$tmp/$name.dvi" 2>/dev/null
 	echo "$name.svg"
 done

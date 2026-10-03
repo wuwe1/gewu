@@ -4,4 +4,6 @@ $$
 F(x)=P(X\leqslant x)
 $$
 
+![[cdf.svg|633]]
+
 Remark: we have $P(a < X\leqslant b)=F(b)-F(a)$.

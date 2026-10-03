@@ -1,0 +1,12 @@
+% 标准差：离均值 mu 典型地有多远
+\documentclass[tikz,dvisvgm,border=6pt]{standalone}
+\input{style}
+\begin{document}
+\begin{tikzpicture}
+  \def\m{4.85}
+  \draw[curve] plot[domain=0:10, samples=120, variable=\xx] (\xx, {dens(\xx)});
+  \draw[axis] (0,0) -- (10.3,0);
+  \draw[tick] (\m,0) -- (\m,-0.08) node[below] {$\mu$};
+  \draw[span] (\m-1.4,0.55) -- node[above] {$\sigma$} (\m,0.55);
+\end{tikzpicture}
+\end{document}

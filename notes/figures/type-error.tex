@@ -1,0 +1,21 @@
+% 两类错误：判定线 c 右边拒绝 H0。alpha = H0 为真却拒绝（红），beta = H0 不真却没拒绝（蓝）
+\documentclass[tikz,dvisvgm,border=6pt]{standalone}
+\input{style}
+\begin{document}
+\begin{tikzpicture}
+  \def\c{5.1}\def\mo{3.7}\def\mi{6.5}\def\s{1.2}
+  \fill[contrastfill] (\c,0) -- plot[domain=\c:10, samples=60, variable=\xx] (\xx, {gauss(\xx,\mo,\s)}) -- (10,0) -- cycle;
+  \fill[accentfill] (0,0) -- plot[domain=0:\c, samples=60, variable=\xx] (\xx, {gauss(\xx,\mi,\s)}) -- (\c,0) -- cycle;
+  \draw[curve] plot[domain=0:10, samples=120, variable=\xx] (\xx, {gauss(\xx,\mo,\s)});
+  \draw[curve] plot[domain=0:10, samples=120, variable=\xx] (\xx, {gauss(\xx,\mi,\s)});
+  \draw[axis] (0,0) -- (10.3,0);
+  \draw[densely dashed, line width=0.7pt] (\c,0) -- (\c,2.45);
+  \draw[tick] (\c,0) -- (\c,-0.08) node[below] {$c$};
+  \node at (\c-0.35,0.17) {\small $\beta$};
+  \node at (\c+0.35,0.17) {\small $\alpha$};
+  \node at (\mo-1.1,2.05) {$H_0$};
+  \node at (\mi+1.1,2.05) {$H_1$};
+  \draw[pointer] (\c-0.12,2.25) -- node[above] {\small accept} (\c-1.6,2.25);
+  \draw[pointer] (\c+0.12,2.25) -- node[above] {\small reject} (\c+1.6,2.25);
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,17 @@
+% 置信区间：真实参数落在 [x1, x2] 里的概率是 1 - alpha
+\documentclass[tikz,dvisvgm,border=6pt]{standalone}
+\input{style}
+\begin{document}
+\begin{tikzpicture}
+  \def\a{2.6}\def\b{7.3}
+  \fill[area] (\a,0) -- plot[domain=\a:\b, samples=80, variable=\xx] (\xx, {dens(\xx)}) -- (\b,0) -- cycle;
+  \draw[guide] (\a,0) -- (\a,{dens(\a)});
+  \draw[guide] (\b,0) -- (\b,{dens(\b)});
+  \draw[curve] plot[domain=0:10, samples=120, variable=\xx] (\xx, {dens(\xx)});
+  \draw[axis] (0,0) -- (10.3,0);
+  \draw[tick] (\a,0) -- (\a,-0.08) node[below] {$x_1$};
+  \draw[tick] (\b,0) -- (\b,-0.08) node[below] {$x_2$};
+  \node (lab) at (8.2,2.1) {$1-\alpha$};
+  \draw[pointer] (lab.south west) to[out=-120, in=0] (5.6,1.2);
+\end{tikzpicture}
+\end{document}

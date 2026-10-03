@@ -40,6 +40,8 @@
 
 ## 2 很多次加起来、平均下来，会怎样？——极限定理
 
+- [[Random sample]] 随机样本
+  - 解释：独立同分布的 $n$ 次观察，后面所有「样本」都指它
 - [[Sample mean]] 和与平均的期望、方差
   - 定义：$n$ 个独立同分布的 $X_i$，和 $S=\sum X_i$，平均 $\bar X=S/n$
   - 推导：$E[S]=n\mu$，$\operatorname{Var}(S)=n\sigma^2$ ⇒ $\operatorname{SD}(S)=\sqrt{n}\,\sigma$；$\operatorname{SD}(\bar X)=\sigma/\sqrt{n}$
@@ -53,7 +55,7 @@
   - 定义：$n$ 越大，$\bar X$ 越接近 $\mu$
   - 推导：[[Chebyshev's inequality]] 用在 $\bar X$ 上：$P(|\bar X-\mu|\geq\varepsilon)\leq\dfrac{\sigma^2}{n\varepsilon^2}\to 0$
   - 解释：为什么频率能当概率用
-- [[Central limit theorem]] 中心极限定理
+- [[Central Limit Theorem]] 中心极限定理
   - 定义：$\dfrac{S-n\mu}{\sqrt{n}\,\sigma}$ 的分布趋向标准正态，不管 $X_i$ 原来长什么样
   - 推导：二项的情形用斯特林公式（棣莫弗-拉普拉斯）；一般情形用特征函数，展开到二阶
   - 直觉：凑出「中间」结果的路最多；加多了，原来的形状被抹平
@@ -64,10 +66,15 @@
 
 ## 3 只看到一份样本，真实值可能在哪？——估计
 
+- [[Estimator]]、[[Bias]] 估计量和偏差
+  - 解释：用数据猜一个看不见的参数；猜得系统性地偏不偏
+- [[Sample variance]] 样本方差
+  - 解释：为什么除以 $n-1$ 而不是 $n$（无偏）
 - [[Standard error]] 估计量和标准误
   - 定义：用样本算出来猜真实值的量（例 $\hat p$）；标准误 = 它的标准差
   - 推导：$\hat p=S/n$ ⇒ $SE=\sqrt{p(1-p)/n}$
   - 解释：一次调查、一次评测的数字自带多大误差
+- [[Confidence level]] 置信水平
 - [[Confidence interval]] 置信区间
   - 定义：$\hat p\pm z\cdot SE$
   - 推导：$P(|\hat p-p|\leq 1.96\,SE)\approx 95\%$，把不等式倒过来解 $p$
@@ -76,10 +83,10 @@
 
 ## 4 一个差别，是真的还是运气？——假设检验
 
-- [[Hypothesis testing]] 零假设、检验统计量、p 值
+- [[p-value]] 零假设、检验统计量、p 值
   - 定义：先假设「没有差别」，算 $z=\dfrac{\text{观察}-\text{假设值}}{SE}$；p 值 = 假设成立时看到这么极端结果的概率
   - 解释：「模型降智了吗」「这个策略有用吗」
-- [[Type I and type II errors]] 两类错误和功效
+- [[Type I error]]、[[Type II error]] 两类错误和功效
   - 定义：α = 没变却报警；β = 变了却没发现；功效 = 1 − β
   - 推导：判定线离 $H_0$ 中心 $z_\alpha SE_0$、离 $H_1$ 中心 $z_\beta SE_1$ ⇒ 需要 $\Delta\geq z_\alpha SE_0+z_\beta SE_1$ ⇒ 解出 $n$
   - 直觉：两座山的重叠；只能靠多要数据让山变瘦

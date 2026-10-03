@@ -1,0 +1,31 @@
+% gewu 的图：统一配色和样式。每张图 \input{style}，改这里就全改。
+% 配色和阅读页、讲解动画一致：黑灰的线，一个蓝色做主色，红色只在要对照时用。
+\usepackage{amssymb}
+\usetikzlibrary{arrows.meta}
+\definecolor{ink}{HTML}{1A1A1A}
+\definecolor{muted}{HTML}{6B6B6B}
+\definecolor{accent}{HTML}{2B5CAB}
+\definecolor{accentfill}{HTML}{DCE6F4}
+\definecolor{contrast}{HTML}{C8321F}
+\definecolor{contrastfill}{HTML}{F6DCD8}
+\tikzset{
+  every picture/.style={line width=0.8pt, color=ink},
+  space/.style={draw=ink, line width=0.8pt},                       % 样本空间
+  set/.style={draw=accent, fill=accentfill, line width=0.8pt},     % 事件
+  allset/.style={draw=ink, fill=accentfill, line width=0.8pt},     % 整个样本空间都算
+  axis/.style={-{Stealth[length=5pt]}, draw=ink, line width=0.6pt},
+  curve/.style={draw=ink, line width=1pt},
+  area/.style={fill=accentfill, draw=none},
+  guide/.style={draw=accent, densely dashed, line width=0.7pt},
+  tick/.style={draw=ink, line width=0.6pt},
+  span/.style={{Stealth[length=4pt]}-{Stealth[length=4pt]}, draw=ink, line width=0.6pt},
+  pointer/.style={-{Stealth[length=4pt]}, draw=ink, line width=0.6pt},
+}
+% 一条通用的、略微右偏的密度曲线（两个正态叠加），定义在 [0,10]
+\pgfmathdeclarefunction{dens}{1}{%
+  \pgfmathparse{2.4*exp(-((#1-4.5)^2)/(2*1.15^2)) + 0.55*exp(-((#1-6.3)^2)/(2*1.4^2))}%
+}
+% 正态形状的曲线：gauss(x, 中心, 宽度)，峰高 2
+\pgfmathdeclarefunction{gauss}{3}{%
+  \pgfmathparse{2*exp(-((#1-#2)^2)/(2*#3^2))}%
+}

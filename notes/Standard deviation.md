@@ -3,3 +3,5 @@ The standard deviation of a [[Random variable|random variable]], often noted $\s
 $$
 \sigma=\sqrt{\textrm{Var}(X)}
 $$
+
+![[standard-deviation.svg|633]]

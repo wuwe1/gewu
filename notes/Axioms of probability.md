@@ -14,8 +14,12 @@ $$
 P(S)=1
 $$
 
+![[probability-axiom-2.svg|633]]
+
 *Axiom 3* ― For any sequence of mutually exclusive events $E_1, ..., E_n$, we have:
 
 $$
 P\left(\bigcup_{i=1}^nE_i\right)=\sum_{i=1}^nP(E_i)
 $$
+
+![[probability-axiom-3.svg|633]]

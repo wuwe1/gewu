@@ -3,3 +3,4 @@ data/
 .DS_Store
 web/dist/
 lab/
+notes/.obsidian/workspace*.json

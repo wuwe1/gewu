@@ -1,0 +1,1 @@
+Any subset $E$ of the [[Sample space|sample space]] is known as an event. That is, an event is a set consisting of possible outcomes of the experiment. If the outcome of the experiment is contained in $E$, then we say that $E$ has occurred.

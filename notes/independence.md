@@ -12,4 +12,4 @@ $$
 f_{XY}(x,y)=f_X(x)\,f_Y(y)
 $$
 
-- 连到：[[covariance]]、[[variance]]、[[statistical-inference]]
+两个变量独立，它们的[[covariance|协方差]]就是 0（反过来不成立：协方差为 0 的两个变量不一定独立）。事件的独立是用[[probability-axioms|概率公理]]里的 $P$ 定义的。

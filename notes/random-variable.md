@@ -18,4 +18,4 @@ $$
 \text{连续：}\quad F(x)=\int_{-\infty}^{x}f(y)\,dy,\qquad f(x)=\frac{dF}{dx}
 $$
 
-- 连到：[[expected-value]]、[[variance]]、[[statistical-inference]]
+有了分布 $f$，才能算[[expected-value|期望]]（按 $f$ 加权的平均）和[[variance|方差]]（离期望有多远）。$F(x)=P(X\leqslant x)$ 里的 $P$，就是[[probability-axioms|概率公理]]里的那个 $P$，用在事件「$X\leqslant x$」上。

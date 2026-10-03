@@ -13,4 +13,4 @@ $$
 - 对任意 $X$、$Y$，$\rho_{XY}\in[-1,1]$
 - 如果 $X$、$Y$ 独立，那么 $\rho_{XY}=0$
 
-- 连到：[[independence]]、[[variance]]、[[statistical-inference]]
+$\operatorname{Cov}(X,X)=\operatorname{Var}(X)$：[[variance|方差]]是协方差的特例。[[independence|独立]]的两个变量协方差为 0。相关系数把协方差除以两个标准差，去掉了单位，所以总在 $[-1,1]$ 里。

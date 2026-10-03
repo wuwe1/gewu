@@ -9,7 +9,7 @@ import { serve } from "../src/server.ts";
 import { view as studyView } from "../src/study.ts";
 import { read, write } from "../src/store.ts";
 import { type Feed, feeds, merge, type Stored, timeline } from "../src/x.ts";
-import { type Article, pull, type Source } from "../src/sources.ts";
+import { type Article, pull, type Repo, type Source, velocity } from "../src/sources.ts";
 
 const HELP = `gewu — 格物
 
@@ -26,6 +26,8 @@ const HELP = `gewu — 格物
   gewu pull             拉所有在跟踪的源：X 账号抓时间线，有 feed 的读 RSS/Atom（文章进 data/items.json）
   gewu items [--fresh] [--source <id>] [--limit N]
       一行一篇文章，新的在前；--fresh 只要还没进过任何一批的
+  gewu repos [--fresh] [--limit N]
+      GitHub 新仓库，按涨速排（两次拉取之间每天涨几颗星；只拉过一次按建仓以来平均）
 
 批次（data/batches/<id>.json：{ title, created, spec }）
   gewu catalog          spec 能用的组件和写法
@@ -107,6 +109,19 @@ async function main() {
 				.slice(0, limit);
 			for (const a of list) console.log(`${(a.published ?? "").slice(0, 10)}  [${a.source}]  ${a.title}\n  ${a.url}\n  ${a.summary.slice(0, 200)}`);
 			console.error(`${list.length} 篇`);
+			return;
+		}
+		case "repos": {
+			const fresh = flag("fresh") !== undefined;
+			const limit = Number(flag("limit") ?? 60);
+			const used = new Set(ids().flatMap((id) => Object.values(read<Batch>(`batches/${id}`, { spec: { elements: {} } } as unknown as Batch).spec.elements)
+				.filter((e) => e.type === "Item").map((e) => (e.props as { url?: string }).url)));
+			const list = Object.values(read<Record<string, Repo>>("repos", {}))
+				.filter((r) => !fresh || !used.has(r.url))
+				.sort((a, b) => velocity(b) - velocity(a))
+				.slice(0, limit);
+			for (const r of list) console.log(`★${r.stars} +${Math.round(velocity(r))}/天  ${r.id}  ${r.created.slice(0, 10)} ${r.language ?? ""}  [${r.sources.join(",")}]\n  ${r.description.slice(0, 160)}`);
+			console.error(`${list.length} 个仓库`);
 			return;
 		}
 		case "catalog":
